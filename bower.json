@@ -1,0 +1,27 @@
+{
+  "name": "fil_rouge",
+  "version": "0.0.0",
+  "authors": [
+    "Your Name <jm.machado.jm@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "gsap": "~1.14.2",
+    "requirejs": "~2.1.15",
+    "pixi.js": "~2.1.1"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1"
+  }
+}
