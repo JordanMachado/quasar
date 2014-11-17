@@ -70,12 +70,12 @@ define([
                 // case 'perc3_01' :
                 //     sample = new Perc3(params);
                 // break;
-                case 'perc4_01' :
-                    sample = new Perc4(params);
-                break;
-                case 'perc5_01' :
-                    sample = new Perc5(params);
-                break;
+                // case 'perc4_01' :
+                //     sample = new Perc4(params);
+                // break;
+                // case 'perc5_01' :
+                //     sample = new Perc5(params);
+                // break;
                 case 'perc6_01' :
                     sample = new Perc6(params);
                 break;
@@ -85,9 +85,9 @@ define([
                 // case 'Synth1_01' :
                 //     sample = new Synth1(params);
                 // break;
-                case 'Synth2_01' :
-                    sample = new Synth2(params);
-                break;
+                // case 'Synth2_01' :
+                //     sample = new Synth2(params);
+                // break;
                 default :
                     return;
                 break;

@@ -2,11 +2,12 @@ define(['underscore','TweenMax', 'TimeLineLite','PIXI','app/PixiPOV','app/animat
 
 	function Perc1Animation(properties) {
 		Animation.apply(this, arguments);
-		this.duration = 0.1;
+		this.duration = 0.3;
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
 	_.extend(Perc1Animation.prototype,Animation.prototype,{
+		tl:new TimelineLite(),
 		buildShape: function() {
 			this.shape = new PIXI.Text('TCHAAAAH', {font:"50px Arial",fill:'white'});
 			this.shape.position.x = window.innerWidth/2;
@@ -16,24 +17,20 @@ define(['underscore','TweenMax', 'TimeLineLite','PIXI','app/PixiPOV','app/animat
 			this.shape.anchor.y = 0.5;
 			this.shape.scale.x = 0;
 			this.shape.scale.y = 0;
-			
-			//console.log(this.shape)
 
 			PixiPOV.stage.addChild(this.shape);
 
 		},
 		start:function() {
-			var that = this;
-			var tl = new TimelineLite();
 			
-			TweenMax.to(this.shape.scale,this.duration,{x:1,y:1,ease:this.easeIn});
-			TweenMax.to(this.shape,this.duration,{alpha:1,ease:this.easeIn,onComplete:function(){
-				that.reset();
-			}});
+			this.reset();
+			this.tl.to(this.shape.scale,this.duration,{x:1,y:1,ease:this.easeIn});
+			this.tl.to(this.shape,this.duration,{alpha:1,ease:this.easeIn},'-=0.3');
+			this.tl.to(this.shape,0.4,{alpha:0,ease:this.easeOut},'+='+this.duration);
+			this.tl.to(this.shape.scale,0.4,{x:0,y:0,ease:this.easeOut},'-=0.4');
 		},
 		reset:function() {
-			TweenMax.to(this.shape,0.4,{alpha:0,ease:this.easeOut});
-			TweenMax.to(this.shape.scale,0.4,{x:0,y:0,ease:this.easeOut});
+			this.tl.clear();
 		},
 
 
