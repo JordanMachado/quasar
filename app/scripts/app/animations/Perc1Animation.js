@@ -1,4 +1,4 @@
-define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation'],function(_, TweenMax, PIXI, PixiPOV, Animation){
+define(['underscore','TweenMax', 'TimeLineLite','PIXI','app/PixiPOV','app/animations/Animation'],function(_, TweenMax, TimeLineLite, PIXI, PixiPOV, Animation){
 
 	function Perc1Animation(properties) {
 		Animation.apply(this, arguments);
@@ -24,6 +24,8 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 		},
 		start:function() {
 			var that = this;
+			var tl = new TimelineLite();
+			
 			TweenMax.to(this.shape.scale,this.duration,{x:1,y:1,ease:this.easeIn});
 			TweenMax.to(this.shape,this.duration,{alpha:1,ease:this.easeIn,onComplete:function(){
 				that.reset();

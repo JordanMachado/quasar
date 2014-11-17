@@ -11,7 +11,7 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 			this.shape = new PIXI.Text('WWWARVOO', {font:"50px Arial",fill:'white'});
 			this.shape.position.x = window.innerWidth/2;
 			this.shape.position.y = window.innerHeight/2;
-			this.shape.alpha = 1;
+			this.shape.alpha = 0;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;
 			this.shape.scale.x = 1;

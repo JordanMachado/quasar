@@ -2,7 +2,7 @@ define(['underscore','TweenMax','TimeLineLite','PIXI','app/PixiPOV','app/animati
 
 	function Perc6Animation(properties) {
 		Animation.apply(this, arguments);
-		this.duration = 0.1;
+		this.duration = 0.5;
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
@@ -11,7 +11,7 @@ define(['underscore','TweenMax','TimeLineLite','PIXI','app/PixiPOV','app/animati
 			this.shape = new PIXI.Text('TCHIII', {font:"50px Arial",fill:'white'});
 			this.shape.position.x = window.innerWidth/2;
 			this.shape.position.y = window.innerHeight- window.innerHeight/8;
-			this.shape.alpha = 1;
+			this.shape.alpha = 0;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;
 			this.shape.scale.x = 1;
@@ -27,10 +27,10 @@ define(['underscore','TweenMax','TimeLineLite','PIXI','app/PixiPOV','app/animati
 			console.log('perc6')
 			var tl = new TimelineLite();
 			tl.to(this.shape, this.duration, {alpha:1});
-			tl.to(this.shape.scale, this.duration, {x:1,y:1},'-=0.5');
+			tl.to(this.shape.scale, this.duration, {x:1,y:1},'-=0.4');
 			tl.to(this.shape.scale, this.duration, {x:0.5,y:0.5},'-=0.2');
-			tl.to(this.shape, this.duration, {alpha:0},'-=0.2');
-			tl.to(this.shape, this.duration, {alpha:1},'-=0.4');
+			tl.to(this.shape,0.4, {alpha:0},'-=0.2');
+			tl.to(this.shape, 0.3, {alpha:1},'+=0.1');
 		},
 
 

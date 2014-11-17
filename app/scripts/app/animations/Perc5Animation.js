@@ -8,10 +8,10 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 	};
 	_.extend(Perc5Animation.prototype,Animation.prototype,{
 		buildShape: function() {
-			this.shape = new PIXI.Text('Perc5', {font:"50px Arial",fill:'white'});
+			this.shape = new PIXI.Text('TIINN', {font:"50px Arial",fill:'white'});
 			this.shape.position.x = window.innerWidth/2;
 			this.shape.position.y = window.innerHeight- window.innerHeight/4;
-			this.shape.alpha = 1;
+			this.shape.alpha = 0;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;
 			this.shape.scale.x = 1;
@@ -23,8 +23,8 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 
 		},
 		start:function() {
-			Animation.prototype.start.call(this);
-			console.log('kick')
+			// Animation.prototype.start.call(this);
+			// console.log('kick')
 		},
 
 
