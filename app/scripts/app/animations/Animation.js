@@ -2,11 +2,15 @@ define(['TweenMax','jquery','PIXI','app/PixiPOV' ],function( TweenMax, $, PIXI, 
 	'use strict';
 
 	function Animation() {
+		this.duration = 0.5;
+		this.easeIn = Quint.easeIn;
+		this.easeOut = Quad.easeOut;
+		this.shape = {};
 		this.init();
 	}
 	Animation.prototype.init = function () {
 		this.buildShape();
-
+		console.log('init')
 	}
 	Animation.prototype.buildShape = function() {
 
@@ -14,7 +18,7 @@ define(['TweenMax','jquery','PIXI','app/PixiPOV' ],function( TweenMax, $, PIXI, 
 	Animation.prototype.start = function () {
 		var that = this;
 
-		TweenMax.to(this.shape,this.duration,{alpha:1,ease: Quad.easeOutBounce,onComplete:function(){
+		TweenMax.to(this.shape,this.duration,{alpha:1,ease:this.easeIn,onComplete:function(){
 		 	that.reset();
 		 }});
 		

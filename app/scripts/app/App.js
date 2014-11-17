@@ -1,5 +1,18 @@
-define(['jquery','app/PixiPOV','app/samples/Clap','app/samples/Hat','app/samples/Kick','app/sound']
-, function ( $, PixiPOV, Clap, Hat, Kick, Sound) {
+define([
+            'jquery',
+            'app/PixiPOV',
+            'app/sound',
+            'app/samples/Perc1',
+            'app/samples/Perc2',
+            'app/samples/Perc3',
+            'app/samples/Perc4',
+            'app/samples/Perc5',
+            'app/samples/Perc6',
+            'app/samples/Perc7',
+            'app/samples/Synth1',
+            'app/samples/Synth2'
+        ]
+, function ( $, PixiPOV, Sound, Perc1, Perc2, Perc3, Perc4, Perc5 , Perc6, Perc7, Synth1, Synth2) {
     "use strict";
 
     var App = {
@@ -15,7 +28,7 @@ define(['jquery','app/PixiPOV','app/samples/Clap','app/samples/Hat','app/samples
         loadData: function(callback) {
             $.ajax({
                 dataType: "json",
-                url: 'data/test.json',
+                url: 'data/data.json',
                 success: function(data) {
                     console.log('%c Data loaded ','background:black;color:white;font-size:14px');
                     App.data = data;
@@ -48,14 +61,35 @@ define(['jquery','app/PixiPOV','app/samples/Clap','app/samples/Hat','app/samples
         createSample:function(type,params) {
             var sample;
             switch (type) {
-                case 'Clap' :
-                    sample = new Clap(params);
+                case 'perc1_01' :
+                    sample = new Perc1(params);
                 break;
-                case 'Hat' :
-                    sample = new Hat(params);
+                // case 'perc2_01' :
+                //     sample = new Perc2(params);
+                // break;
+                // case 'perc3_01' :
+                //     sample = new Perc3(params);
+                // break;
+                case 'perc4_01' :
+                    sample = new Perc4(params);
                 break;
-                case 'Kick' :
-                    sample = new Kick(params);
+                case 'perc5_01' :
+                    sample = new Perc5(params);
+                break;
+                case 'perc6_01' :
+                    sample = new Perc6(params);
+                break;
+                // case 'perc7_01' :
+                //     sample = new Perc7(params);
+                // break;
+                // case 'Synth1_01' :
+                //     sample = new Synth1(params);
+                // break;
+                case 'Synth2_01' :
+                    sample = new Synth2(params);
+                break;
+                default :
+                    return;
                 break;
             }
             App.samples.push(sample);

@@ -3,7 +3,7 @@ define([],function() {
 	function Sound() {
 		this.isPlaying = false;
 		var audioCtx = new (window.AudioContext || window.webkitAudioContext);
-		this.audio =  new Audio('sounds/master.mp3');
+		this.audio =  new Audio('sounds/Fullsong.mp3');
 		this.audio.addEventListener("ended",this.ended.bind(this));
 		this.audio.addEventListener('canplaythrough', this.ready.bind(this), false);
 		var analyser = audioCtx.createAnalyser();

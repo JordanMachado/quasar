@@ -1,14 +1,14 @@
 define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation'],function(_, TweenMax, PIXI, PixiPOV, Animation){
 
-	function KickAnimation(properties) {
+	function Synth2Animation(properties) {
 		Animation.apply(this, arguments);
-		this.duration = 0.2;
+		this.duration = 0.4;
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
-	_.extend(KickAnimation.prototype,Animation.prototype,{
+	_.extend(Synth2Animation.prototype,Animation.prototype,{
 		buildShape: function() {
-			this.shape = new PIXI.Text('KICK', {font:"50px Arial",fill:'white'});
+			this.shape = new PIXI.Text('WWWARVOO', {font:"50px Arial",fill:'white'});
 			this.shape.position.x = window.innerWidth/2;
 			this.shape.position.y = window.innerHeight/2;
 			this.shape.alpha = 1;
@@ -24,14 +24,15 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 		},
 		start:function() {
 			Animation.prototype.start.call(this);
-			console.log('kick')
+			console.log('perc7')
 		},
 		reset:function() {
-			Animation.prototype.reset.call(this);
-		}
+			TweenMax.to(this.shape,0.4,{alpha:0,ease:this.easeOut});
+			TweenMax.to(this.shape.scale,0.4,{x:0,y:0,ease:this.easeOut});
+		},
 
 
 	});
 
-	return KickAnimation;
+	return Synth2Animation;
 });

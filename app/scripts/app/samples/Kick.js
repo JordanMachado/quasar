@@ -4,7 +4,7 @@ define(['underscore','app/samples/Sample','app/animations/KickAnimation'],functi
 		Sample.apply(this, arguments);
 		this.name = properties.name;
 		this.timeline = properties.timeline;
-		this.animation = new KickAnimation(this.name);
+		this.animation = new KickAnimation();
 	};
 	_.extend(Kick.prototype,Sample.prototype);
 

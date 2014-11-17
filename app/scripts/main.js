@@ -7,9 +7,6 @@ require.config({
 		'jquery': {
 			exports: '$'
 		},
-		'TweenMax': {
-			exports: 'Tween'
-		},
 		'PIXI': {
 			exports: 'PIXI'
 		},
@@ -22,7 +19,8 @@ require.config({
 		'underscore': 'bower_components/underscore/underscore',
 		'jquery': 'bower_components/jquery/dist/jquery',
 		'TweenMax': 'bower_components/gsap/src/uncompressed/TweenMax',
-		'PIXI': 'bower_components/pixi.js/bin/pixi',
+		'TimeLineLite': 'bower_components/gsap/src/uncompressed/TimelineLite',
+		'PIXI': 'bower_components/pixi.js/bin/pixi'
 
 	}
 });
