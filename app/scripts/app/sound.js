@@ -10,6 +10,7 @@ define([],function() {
 		var source = audioCtx.createMediaElementSource(this.audio); 
 		source.connect(analyser);
 		analyser.connect(audioCtx.destination);
+		this.audio.playbackRate = 1;
 		
 	};
 	Sound.prototype.ready = function() {

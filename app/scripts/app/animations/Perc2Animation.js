@@ -2,16 +2,16 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 
 	function Perc2Animation(properties) {
 		Animation.apply(this, arguments);
-		this.duration = 0.1;
+		this.duration = 0.2;
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
 	_.extend(Perc2Animation.prototype,Animation.prototype,{
 		buildShape: function() {
-			this.shape = new PIXI.Text('Perc2', {font:"50px Arial",fill:'white'});
-			this.shape.position.x = window.innerWidth/2;
-			this.shape.position.y = window.innerHeight/2;
-			this.shape.alpha = 1;
+			this.shape = new PIXI.Text('Tinn', {font:"50px Arial",fill:'#33ff99'});
+			this.shape.position.x = window.innerWidth/2-250;
+			this.shape.position.y =  window.innerHeight/4;
+			this.shape.alpha = 0;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;
 			this.shape.scale.x = 1;

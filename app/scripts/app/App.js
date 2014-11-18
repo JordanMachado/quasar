@@ -10,9 +10,10 @@ define([
             'app/samples/Perc6',
             'app/samples/Perc7',
             'app/samples/Synth1',
-            'app/samples/Synth2'
+            'app/samples/Synth2',
+            'app/samples/Kick',
         ]
-, function ( $, PixiPOV, Sound, Perc1, Perc2, Perc3, Perc4, Perc5 , Perc6, Perc7, Synth1, Synth2) {
+, function ( $, PixiPOV, Sound, Perc1, Perc2, Perc3, Perc4, Perc5 , Perc6, Perc7, Synth1, Synth2, Kick) {
     "use strict";
 
     var App = {
@@ -64,18 +65,18 @@ define([
                 case 'perc1_01' :
                     sample = new Perc1(params);
                 break;
-                // case 'perc2_01' :
-                //     sample = new Perc2(params);
-                // break;
+                case 'perc2_01' :
+                    sample = new Perc2(params);
+                break;
                 // case 'perc3_01' :
                 //     sample = new Perc3(params);
                 // break;
-                // case 'perc4_01' :
-                //     sample = new Perc4(params);
-                // break;
-                // case 'perc5_01' :
-                //     sample = new Perc5(params);
-                // break;
+                case 'perc4_01' :
+                    sample = new Perc4(params);
+                break;
+                case 'perc5_01' :
+                    sample = new Perc5(params);
+                break;
                 case 'perc6_01' :
                     sample = new Perc6(params);
                 break;
@@ -88,6 +89,9 @@ define([
                 // case 'Synth2_01' :
                 //     sample = new Synth2(params);
                 // break;
+                case 'kick_01' :
+                    sample = new Kick(params);
+                break;
                 default :
                     return;
                 break;

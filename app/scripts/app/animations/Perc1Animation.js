@@ -9,7 +9,7 @@ define(['underscore','TweenMax', 'TimeLineLite','PIXI','app/PixiPOV','app/animat
 	_.extend(Perc1Animation.prototype,Animation.prototype,{
 		tl:new TimelineLite(),
 		buildShape: function() {
-			this.shape = new PIXI.Text('TCHAAAAH', {font:"50px Arial",fill:'white'});
+			this.shape = new PIXI.Text('TCHAAAAH', {font:"50px Arial",fill:'#33ff99'});
 			this.shape.position.x = window.innerWidth/2;
 			this.shape.position.y = window.innerHeight/8;
 			this.shape.alpha = 0;
@@ -24,6 +24,7 @@ define(['underscore','TweenMax', 'TimeLineLite','PIXI','app/PixiPOV','app/animat
 		start:function() {
 			
 			this.reset();
+			PixiPOV.showFilter(PixiPOV.filterEnum.INVERT,true);
 			this.tl.to(this.shape.scale,this.duration,{x:1,y:1,ease:this.easeIn});
 			this.tl.to(this.shape,this.duration,{alpha:1,ease:this.easeIn},'-=0.3');
 			this.tl.to(this.shape,0.4,{alpha:0,ease:this.easeOut},'+='+this.duration);
