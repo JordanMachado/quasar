@@ -8,18 +8,20 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 	};
 	_.extend(Perc3Animation.prototype,Animation.prototype,{
 		buildShape: function() {
-			this.shape = new PIXI.Text('Perc3', {font:"50px Arial",fill:'white'});
-			this.shape.position.x = window.innerWidth/2;
-			this.shape.position.y = window.innerHeight/2;
+			this.shape = new PIXI.Text('PULOOP', {font:"50px BebasNeue",fill:'#ecebeb'});
+			this.shape.position.x = 290;
+			this.shape.position.y = 85;
 			this.shape.alpha = 1;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;
+	
+			
 			this.shape.scale.x = 1;
 			this.shape.scale.y = 1;
 			
 			//console.log(this.shape)
 
-			PixiPOV.stage.addChild(this.shape);
+			PixiPOV.container.addChild(this.shape);
 
 		},
 		start:function() {

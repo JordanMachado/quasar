@@ -2,23 +2,19 @@ define(['underscore','TweenMax', 'TimeLineLite','PIXI','app/PixiPOV','app/animat
 
 	function Perc1Animation(properties) {
 		Animation.apply(this, arguments);
-		this.duration = 0.3;
+		this.duration = 0.1;
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
 	_.extend(Perc1Animation.prototype,Animation.prototype,{
 		tl:new TimelineLite(),
 		buildShape: function() {
-			this.shape = new PIXI.Text('TCHAAAAH', {font:"50px Arial",fill:'#33ff99'});
-			this.shape.position.x = window.innerWidth/2;
-			this.shape.position.y = window.innerHeight/8;
-			this.shape.alpha = 0;
-			this.shape.anchor.x = 0.5;
-			this.shape.anchor.y = 0.5;
-			this.shape.scale.x = 0;
-			this.shape.scale.y = 0;
+			this.shape = new PIXI.Text('TCHAAA', {font:"75px BebasNeue",fill:'#ecebeb'});
+			this.shape.position.x = 235;
+			this.shape.position.y = 0;
+			this.shape.rotation = 1.5707963267949;
 
-			PixiPOV.stage.addChild(this.shape);
+			PixiPOV.container.addChild(this.shape);
 
 		},
 		start:function() {

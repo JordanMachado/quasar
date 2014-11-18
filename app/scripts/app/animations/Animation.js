@@ -10,7 +10,6 @@ define(['TweenMax','jquery','PIXI','app/PixiPOV' ],function( TweenMax, $, PIXI, 
 	}
 	Animation.prototype.init = function () {
 		this.buildShape();
-		console.log('init')
 	}
 	Animation.prototype.buildShape = function() {
 

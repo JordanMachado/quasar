@@ -46,7 +46,7 @@ define([
 
              for(var i =0,ln = App.data.samples.length;i<ln;i++) {
                     App.createSample(App.data.samples[i].type,{
-                        name:App.data.samples[i].type,
+                        name:App.data.samples[i].name,
                         timeline:App.data.samples[i].timeline
                     });
             }
@@ -54,14 +54,9 @@ define([
 
             App.animate();
             PixiPOV.init();
-            // ThreePOV.init();
-            // ThreePOV.render();
             App.playSound();
 
         },
-        /*
-         * I have to find another way to create dynamically my sample
-         */
         createSample:function(type,params) {
             var sample;
             switch (type) {
@@ -71,9 +66,9 @@ define([
                 case 'perc2_01' :
                     sample = new Perc2(params);
                 break;
-                // case 'perc3_01' :
-                //     sample = new Perc3(params);
-                // break;
+                case 'perc3_01' :
+                    sample = new Perc3(params);
+                break;
                 case 'perc4_01' :
                     sample = new Perc4(params);
                 break;
@@ -89,9 +84,9 @@ define([
                 // case 'Synth1_01' :
                 //     sample = new Synth1(params);
                 // break;
-                // case 'Synth2_01' :
-                //     sample = new Synth2(params);
-                // break;
+                case 'Synth2_01' :
+                    sample = new Synth2(params);
+                break;
                 case 'kick_01' :
                     sample = new Kick(params);
                 break;
@@ -114,9 +109,7 @@ define([
             requestAnimationFrame(App.animate);
         },
         resize:function() {
-           // console.log('resize')
-           // PixiPOV.resize(window.innerWidth,window.innerHeight);
-
+            PixiPOV.resize(window.innerWidth,window.innerHeight);
         }
     }
     return App;

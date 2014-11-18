@@ -2,7 +2,7 @@ define(['PIXI'],function(PIXI){
 
 
 	var PixiPOV = {
-		stage: new PIXI.Stage('black'),
+		stage: new PIXI.Stage( 0x212123),
 		filterEnum:{
 			PIXELATE:0,
 			INVERT:1
@@ -16,13 +16,14 @@ define(['PIXI'],function(PIXI){
 			
 			//PixiPOV.createFilters();
 			
-			var graphics = new PIXI.Graphics();
-			graphics.beginFill(0xFF);			
-			graphics.drawRect(0, 0,100,100);
-			PixiPOV.container.addChild(graphics);
-			PixiPOV.container.position.x = window.innerWidth/2;
-			PixiPOV.container.position.y = window.innerHeight/2;
+			// var graphics = new PIXI.Graphics();
+			// graphics.beginFill(0xFF);			
+			// graphics.drawRect(0, 0,100,100);
+			// PixiPOV.container.addChild(graphics);
 			console.log(PixiPOV.container.width+"width");
+			PixiPOV.container.position.x = window.innerWidth/2-PixiPOV.container.width/2;
+			PixiPOV.container.position.y = window.innerHeight/2-PixiPOV.container.height/2;
+			
 
 			PixiPOV.stage.addChild(PixiPOV.container);
 
@@ -52,11 +53,12 @@ define(['PIXI'],function(PIXI){
 			PixiPOV.stage.filters = (filtersToApply.length > 0) ? filtersToApply : null;
 
 		},
-		resize:function(width,height) {
+		resize:function(windowWidth,windowHeight) {
 			console.log('resize pixi')
-			PixiPOV.container.scale.x = PixiPOV.container.scale.y = PixiPOV.renderer.width / width;
+			PixiPOV.container.position.x = windowWidth/2-PixiPOV.container.width/2;
+			PixiPOV.container.position.y = windowHeight/2-PixiPOV.container.height/2;
 			
-			PixiPOV.renderer.resize(width,height);
+			PixiPOV.renderer.resize(windowWidth,windowHeight);
 
 		}
 

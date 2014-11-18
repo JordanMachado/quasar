@@ -10,10 +10,9 @@ define(['underscore','TweenMax','TimeLineLite','PIXI','app/PixiPOV','app/animati
 		graphics:new PIXI.Graphics(),
 		tl:new TimelineLite(),
 		buildShape: function() {
-			this.shape = new PIXI.Text('POW', {font:"120px BebasNeue",fill:'white'});
-			console.log(this.shape.height)
-			this.shape.position.x = 100;
-			this.shape.position.y = 100;
+			this.shape = new PIXI.Text('POW', {font:"130px BebasNeue",fill:'#58ce52'});
+			this.shape.position.x = 0;
+			this.shape.position.y = this.shape.height - 25;
 			this.shape.alpha = 1;
 			// this.shape.anchor.x = 0.5;
 			// this.shape.anchor.y = 0.5;
