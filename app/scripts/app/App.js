@@ -25,6 +25,9 @@ define([
         initialize: function() {
             console.log('%c Initialize App ','background:black;color:white;font-size:14px');
             App.loadData(this.createSamples);
+            window.addEventListener('resize',function() {
+                App.resize();
+            }, false);
         },
         loadData: function(callback) {
             $.ajax({
@@ -109,6 +112,11 @@ define([
             }
 
             requestAnimationFrame(App.animate);
+        },
+        resize:function() {
+           // console.log('resize')
+           // PixiPOV.resize(window.innerWidth,window.innerHeight);
+
         }
     }
     return App;

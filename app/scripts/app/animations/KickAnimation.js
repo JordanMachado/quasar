@@ -10,12 +10,13 @@ define(['underscore','TweenMax','TimeLineLite','PIXI','app/PixiPOV','app/animati
 		graphics:new PIXI.Graphics(),
 		tl:new TimelineLite(),
 		buildShape: function() {
-			this.shape = new PIXI.Text('KICK', {font:"120px Arial",fill:'white'});
-			this.shape.position.x = window.innerWidth/2;
-			this.shape.position.y = window.innerHeight/2;
-			this.shape.alpha = 0;
-			this.shape.anchor.x = 0.5;
-			this.shape.anchor.y = 0.5;
+			this.shape = new PIXI.Text('POW', {font:"120px BebasNeue",fill:'white'});
+			console.log(this.shape.height)
+			this.shape.position.x = 100;
+			this.shape.position.y = 100;
+			this.shape.alpha = 1;
+			// this.shape.anchor.x = 0.5;
+			// this.shape.anchor.y = 0.5;
 			this.shape.scale.x = 1;
 			this.shape.scale.y = 1;
 
@@ -30,7 +31,7 @@ define(['underscore','TweenMax','TimeLineLite','PIXI','app/PixiPOV','app/animati
 			// this.graphics.scale.y = 0;
 			// this.graphics.alpha = 0;
 			// PixiPOV.stage.addChild(this.graphics);
-			PixiPOV.stage.addChild(this.shape);
+			PixiPOV.container.addChild(this.shape);
 
 		},
 		start:function() {

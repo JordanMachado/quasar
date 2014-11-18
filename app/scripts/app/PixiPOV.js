@@ -9,17 +9,24 @@ define(['PIXI'],function(PIXI){
 		},
 		filterSwitch:[false,false],
 		filterCollection:[],
+		container: new PIXI.DisplayObjectContainer(),
 		renderer: PIXI.autoDetectRenderer(window.innerWidth,window.innerHeight),
 		init: function() {
 			document.body.appendChild(PixiPOV.renderer.view);
-			// var graphics = new PIXI.Graphics();
-			// graphics.beginFill(0x000000);			
-			// // draw a rectangle
-			// graphics.drawRect(0, 0, window.innerWidth, window.innerHeight);
-			// PixiPOV.stage.addChild(graphics)
-			PixiPOV.createFilters();
+			
+			//PixiPOV.createFilters();
+			
+			var graphics = new PIXI.Graphics();
+			graphics.beginFill(0xFF);			
+			graphics.drawRect(0, 0,100,100);
+			PixiPOV.container.addChild(graphics);
+			PixiPOV.container.position.x = window.innerWidth/2;
+			PixiPOV.container.position.y = window.innerHeight/2;
+			console.log(PixiPOV.container.width+"width");
 
-			requestAnimFrame( PixiPOV.animate );
+			PixiPOV.stage.addChild(PixiPOV.container);
+
+			PixiPOV.animate();
 		},
 		animate: function() {
 			requestAnimFrame( PixiPOV.animate );
@@ -44,11 +51,18 @@ define(['PIXI'],function(PIXI){
 			};
 			PixiPOV.stage.filters = (filtersToApply.length > 0) ? filtersToApply : null;
 
+		},
+		resize:function(width,height) {
+			console.log('resize pixi')
+			PixiPOV.container.scale.x = PixiPOV.container.scale.y = PixiPOV.renderer.width / width;
+			
+			PixiPOV.renderer.resize(width,height);
+
 		}
 
 
 	};
-
+	window.PixiPOV = PixiPOV;
 	return PixiPOV;
 
 });
