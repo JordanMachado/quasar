@@ -1,4 +1,4 @@
-define([],function() {
+define(['TweenMax','app/Outro'],function(TweenMax, Outro) {
 
 	function Sound() {
 		this.isPlaying = false;
@@ -11,10 +11,15 @@ define([],function() {
 		source.connect(analyser);
 		analyser.connect(audioCtx.destination);
 		this.audio.playbackRate = 1.7;
+		this.audio.volume = 0;
+		this.restart = true;
+
+		
 		
 	};
 	Sound.prototype.ready = function() {
 		this.play();
+		TweenMax.to(this.audio,2.5,{volume:1})
 	};
 	Sound.prototype.play = function() {
 		console.log('%c Play song ','background:black;color:white;font-size:14px');
@@ -30,13 +35,19 @@ define([],function() {
 	};
 	Sound.prototype.ended = function() {
 		console.log('ended');
+		Outro.init();
 		this.isPlaying = false;
 	};
 	Sound.prototype.loopIntro = function() {
-		if(this.audio.currentTime>20) {
-			console.log('should restart');
-			this.audio.currentTime = 0
-
+		var that = this;
+		if(this.audio.currentTime>20 && this.restart) {
+			this.restart = false;
+			TweenMax.to(this.audio,2.5,{volume:0,onComplete:function(){
+				that.audio.currentTime = 0;
+				that.restart = true;
+			}})
+			
+			
 		}
 	};
 	return Sound;

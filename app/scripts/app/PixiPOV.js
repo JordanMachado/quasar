@@ -13,21 +13,11 @@ define(['PIXI','TweenMax'],function(PIXI, TweenMax){
 		renderer: PIXI.autoDetectRenderer(window.innerWidth,window.innerHeight),
 		init: function() {
 			document.body.appendChild(PixiPOV.renderer.view);
-			
-			//PixiPOV.createFilters();
-			
-			// var graphics = new PIXI.Graphics();
-			// graphics.beginFill(0xFF);			
-			// graphics.drawRect(0, 0,100,100);
-			// PixiPOV.container.addChild(graphics);
-			//console.log(PixiPOV.container.width+"width");
 			PixiPOV.container.position.x = window.innerWidth/2-PixiPOV.container.width/2;
 			PixiPOV.container.position.y = window.innerHeight/2-PixiPOV.container.height/2;
-			
-
 			PixiPOV.stage.addChild(PixiPOV.container);
-			
 
+			PixiPOV.showAllChildrenInContainer();
 			PixiPOV.animate();
 		},
 		animate: function() {
@@ -55,14 +45,12 @@ define(['PIXI','TweenMax'],function(PIXI, TweenMax){
 
 		},
 		resize:function(windowWidth,windowHeight) {
-			console.log('resize pixi')
 			PixiPOV.container.position.x = windowWidth/2-PixiPOV.container.width/2;
 			PixiPOV.container.position.y = windowHeight/2-PixiPOV.container.height/2;
-			
 			PixiPOV.renderer.resize(windowWidth,windowHeight);
 		},
 		showAllChildrenInContainer: function() {
-				TweenMax.to(PixiPOV.container.children[i],1,{alpha:1,ease:Quint.easeIn});
+				TweenMax.to(PixiPOV.container.children,1,{alpha:1,ease:Quint.easeIn});
 		},
 		hideAllChildrenInContainer: function() {
 				TweenMax.to(PixiPOV.container.children,1,{alpha:0,ease:Quint.easeOut});

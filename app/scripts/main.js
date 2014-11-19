@@ -26,8 +26,9 @@ require.config({
 });
 
 require([
-    'app/App'
-],function (App) {
+    'app/App',
+    'jquery'
+],function (App, $) {
 
     var main = {
         initialize: function(){

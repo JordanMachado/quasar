@@ -17,7 +17,7 @@ define([
             'app/samples/Synth5',
             'app/samples/Kick',
         ]
-, function ( $, PixiPOV, Sound, Perc1, Perc2, Perc3, Perc4, Perc5 , Perc6, Perc7, Synth1, Synth2, Synth3, Synth4, Synth5, Kick) {
+, function ( $, PixiPOV, Intro, Sound, Perc1, Perc2, Perc3, Perc4, Perc5 , Perc6, Perc7, Synth1, Synth2, Synth3, Synth4, Synth5, Kick) {
     "use strict";
 
     var App = {
@@ -25,13 +25,23 @@ define([
         data: {},
         sound:{},
         samples:[],
+        startExperience:false,
         
         initialize: function() {
             console.log('%c Initialize App ','background:black;color:white;font-size:14px');
-            App.loadData(this.createSamples);
-            window.addEventListener('resize',function() {
-                App.resize();
+            
+            window.addEventListener('startEvent',function() {
+                App.startExperience = true;
+                _.delay(function(){
+                    PixiPOV.hideAllChildrenInContainer();
+                }, 1000) ;
+                
+                console.log('%c startExperience ','background:black;color:white;font-size:14px');
             }, false);
+            window.addEventListener('resize',function() {App.resize();}, false);
+
+            App.loadData(this.createSamples);
+           Intro.init();
         },
         loadData: function(callback) {
             $.ajax({
@@ -59,8 +69,6 @@ define([
             App.animate();
             PixiPOV.init();
             App.playSound();
-            PixiPOV.hideAllChildrenInContainer();
-
         },
         createSample:function(type,params) {
             var sample;
@@ -112,17 +120,18 @@ define([
         },
         playSound:function() {
             App.sound = new Sound();
+            window.sound = App.sound;
         },
         animate: function() {
             if(App.sound.isPlaying) {
                 
-                //if(Intro.canStart) {
+                if(App.startExperience) {
                     for(var i =0,ln = App.samples.length;i<ln;i++) {
                         App.samples[i].launchAnimation(App.sound.getCurrentTime());
                     }
-               // } else {
-                        //App.sound.loopIntro();
-                //}
+                } else {
+                        App.sound.loopIntro();
+                }
                
             }
 
