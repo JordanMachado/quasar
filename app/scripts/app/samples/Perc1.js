@@ -1,4 +1,4 @@
-define(['underscore','app/samples/Sample','app/animations/Perc1Animation'],function(_,Sample,Perc1Animation){
+define(['underscore', 'app/Sample', 'app/animations/Perc1Animation'], function(_, Sample, Perc1Animation) {
 
 	function Perc1(properties) {
 		Sample.apply(this, arguments);
@@ -6,7 +6,7 @@ define(['underscore','app/samples/Sample','app/animations/Perc1Animation'],funct
 		this.timeline = properties.timeline;
 		this.animation = new Perc1Animation();
 	};
-	_.extend(Perc1.prototype,Sample.prototype);
+	_.extend(Perc1.prototype, Sample.prototype);
 
 	return Perc1;
 });

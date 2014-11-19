@@ -1,4 +1,4 @@
-define(['underscore','app/samples/Sample','app/animations/Synth3Animation'],function(_,Sample,Synth3Animation){
+define(['underscore', 'app/Sample', 'app/animations/Synth3Animation'], function(_, Sample, Synth3Animation) {
 
 	function Synth3(properties) {
 		Sample.apply(this, arguments);
@@ -6,7 +6,7 @@ define(['underscore','app/samples/Sample','app/animations/Synth3Animation'],func
 		this.timeline = properties.timeline;
 		this.animation = new Synth3Animation();
 	};
-	_.extend(Synth3.prototype,Sample.prototype);
+	_.extend(Synth3.prototype, Sample.prototype);
 
 	return Synth3;
 });

@@ -1,4 +1,4 @@
-define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation'],function(_, TweenMax, PIXI, PixiPOV, Animation){
+define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], function(_, TweenMax, PIXI, PixiPOV, Animation) {
 
 	function Synth5Animation(properties) {
 		Animation.apply(this, arguments);
@@ -6,9 +6,12 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
-	_.extend(Synth5Animation.prototype,Animation.prototype,{
+	_.extend(Synth5Animation.prototype, Animation.prototype, {
 		buildShape: function() {
-			this.shape = new PIXI.Text('Hein', {font:"50px BebasNeue",fill:'#ecebeb'});
+			this.shape = new PIXI.Text('Hein', {
+				font: "50px BebasNeue",
+				fill: '#ecebeb'
+			});
 			this.shape.position.x = 410;
 			this.shape.position.y = 450;
 			// this.shape.scale.x = .5;

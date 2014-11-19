@@ -1,4 +1,4 @@
-define(['underscore','app/samples/Sample','app/animations/KickAnimation'],function(_,Sample,KickAnimation){
+define(['underscore', 'app/Sample', 'app/animations/KickAnimation'], function(_, Sample, KickAnimation) {
 
 	function Kick(properties) {
 		Sample.apply(this, arguments);
@@ -6,7 +6,7 @@ define(['underscore','app/samples/Sample','app/animations/KickAnimation'],functi
 		this.timeline = properties.timeline;
 		this.animation = new KickAnimation();
 	};
-	_.extend(Kick.prototype,Sample.prototype);
+	_.extend(Kick.prototype, Sample.prototype);
 
 	return Kick;
 });

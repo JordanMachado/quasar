@@ -1,4 +1,4 @@
-define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation'],function(_, TweenMax, PIXI, PixiPOV, Animation){
+define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], function(_, TweenMax, PIXI, PixiPOV, Animation) {
 
 	function Synth3Animation(properties) {
 		Animation.apply(this, arguments);
@@ -6,10 +6,13 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
-	_.extend(Synth3Animation.prototype,Animation.prototype,{
+	_.extend(Synth3Animation.prototype, Animation.prototype, {
 		buildShape: function() {
-			this.shape = new PIXI.Text('WOWE', {font:"200px BebasNeue",fill:'#ecebeb'});
-			this.shape.position.x = this.shape.width/2 + 2;
+			this.shape = new PIXI.Text('WOWE', {
+				font: "200px BebasNeue",
+				fill: '#ecebeb'
+			});
+			this.shape.position.x = this.shape.width / 2 + 2;
 			this.shape.position.y = 360;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;

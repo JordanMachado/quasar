@@ -1,4 +1,4 @@
-define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation'],function(_, TweenMax, PIXI, PixiPOV, Animation){
+define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], function(_, TweenMax, PIXI, PixiPOV, Animation) {
 
 	function Perc2Animation(properties) {
 		Animation.apply(this, arguments);
@@ -6,10 +6,13 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 		this.easeIn = Quint.easeIn;
 		this.easeOut = Quad.easeOut;
 	};
-	_.extend(Perc2Animation.prototype,Animation.prototype,{
+	_.extend(Perc2Animation.prototype, Animation.prototype, {
 		buildShape: function() {
 			//tin up
-			this.shape = new PIXI.Text('TIN', {font:"50px BebasNeue",fill:'#ecebeb'});
+			this.shape = new PIXI.Text('TIN', {
+				font: "50px BebasNeue",
+				fill: '#ecebeb'
+			});
 			this.shape.position.x = 0;
 			this.shape.position.y = 0;
 			this.shape.alpha = 1;
