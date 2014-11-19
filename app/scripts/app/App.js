@@ -1,6 +1,7 @@
 define([
             'jquery',
             'app/PixiPOV',
+            'app/Intro',
             'app/sound',
             'app/samples/Perc1',
             'app/samples/Perc2',
@@ -11,9 +12,12 @@ define([
             'app/samples/Perc7',
             'app/samples/Synth1',
             'app/samples/Synth2',
+            'app/samples/Synth3',
+            'app/samples/Synth4',
+            'app/samples/Synth5',
             'app/samples/Kick',
         ]
-, function ( $, PixiPOV, Sound, Perc1, Perc2, Perc3, Perc4, Perc5 , Perc6, Perc7, Synth1, Synth2, Kick) {
+, function ( $, PixiPOV, Sound, Perc1, Perc2, Perc3, Perc4, Perc5 , Perc6, Perc7, Synth1, Synth2, Synth3, Synth4, Synth5, Kick) {
     "use strict";
 
     var App = {
@@ -55,6 +59,7 @@ define([
             App.animate();
             PixiPOV.init();
             App.playSound();
+            PixiPOV.hideAllChildrenInContainer();
 
         },
         createSample:function(type,params) {
@@ -81,11 +86,20 @@ define([
                 // case 'perc7_01' :
                 //     sample = new Perc7(params);
                 // break;
-                // case 'Synth1_01' :
-                //     sample = new Synth1(params);
-                // break;
+                case 'Synth1_01' :
+                    sample = new Synth1(params);
+                break;
+                case 'Synth3_01' :
+                    sample = new Synth3(params);
+                break;
                 case 'Synth2_01' :
                     sample = new Synth2(params);
+                break;
+                case 'Synth4_01' :
+                    sample = new Synth4(params);
+                break;
+                case 'Synth5_01' :
+                    sample = new Synth5(params);
                 break;
                 case 'kick_01' :
                     sample = new Kick(params);
@@ -101,9 +115,15 @@ define([
         },
         animate: function() {
             if(App.sound.isPlaying) {
-                for(var i =0,ln = App.samples.length;i<ln;i++) {
-                    App.samples[i].launchAnimation(App.sound.getCurrentTime());
-                }
+                
+                //if(Intro.canStart) {
+                    for(var i =0,ln = App.samples.length;i<ln;i++) {
+                        App.samples[i].launchAnimation(App.sound.getCurrentTime());
+                    }
+               // } else {
+                        //App.sound.loopIntro();
+                //}
+               
             }
 
             requestAnimationFrame(App.animate);

@@ -37,7 +37,7 @@ require([
         	
         },
         onReady:function() {
-        	console.log('ready')
+        	//console.log('ready')
         	App.initialize();
         }
 

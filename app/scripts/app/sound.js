@@ -32,5 +32,12 @@ define([],function() {
 		console.log('ended');
 		this.isPlaying = false;
 	};
+	Sound.prototype.loopIntro = function() {
+		if(this.audio.currentTime>20) {
+			console.log('should restart');
+			this.audio.currentTime = 0
+
+		}
+	};
 	return Sound;
 });

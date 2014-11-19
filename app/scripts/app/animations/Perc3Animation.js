@@ -9,8 +9,8 @@ define(['underscore','TweenMax','PIXI','app/PixiPOV','app/animations/Animation']
 	_.extend(Perc3Animation.prototype,Animation.prototype,{
 		buildShape: function() {
 			this.shape = new PIXI.Text('PULOOP', {font:"50px BebasNeue",fill:'#ecebeb'});
-			this.shape.position.x = 290;
-			this.shape.position.y = 85;
+			this.shape.position.x = 400;
+			this.shape.position.y = 390;
 			this.shape.alpha = 1;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;

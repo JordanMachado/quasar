@@ -1,4 +1,4 @@
-define(['PIXI'],function(PIXI){
+define(['PIXI','TweenMax'],function(PIXI, TweenMax){
 
 
 	var PixiPOV = {
@@ -20,12 +20,13 @@ define(['PIXI'],function(PIXI){
 			// graphics.beginFill(0xFF);			
 			// graphics.drawRect(0, 0,100,100);
 			// PixiPOV.container.addChild(graphics);
-			console.log(PixiPOV.container.width+"width");
+			//console.log(PixiPOV.container.width+"width");
 			PixiPOV.container.position.x = window.innerWidth/2-PixiPOV.container.width/2;
 			PixiPOV.container.position.y = window.innerHeight/2-PixiPOV.container.height/2;
 			
 
 			PixiPOV.stage.addChild(PixiPOV.container);
+			
 
 			PixiPOV.animate();
 		},
@@ -59,7 +60,12 @@ define(['PIXI'],function(PIXI){
 			PixiPOV.container.position.y = windowHeight/2-PixiPOV.container.height/2;
 			
 			PixiPOV.renderer.resize(windowWidth,windowHeight);
-
+		},
+		showAllChildrenInContainer: function() {
+				TweenMax.to(PixiPOV.container.children[i],1,{alpha:1,ease:Quint.easeIn});
+		},
+		hideAllChildrenInContainer: function() {
+				TweenMax.to(PixiPOV.container.children,1,{alpha:0,ease:Quint.easeOut});
 		}
 
 
