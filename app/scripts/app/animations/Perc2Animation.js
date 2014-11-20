@@ -3,8 +3,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 	function Perc2Animation(properties) {
 		Animation.apply(this, arguments);
 		this.duration = 0.3;
-		this.easeIn = Quint.easeIn;
-		this.easeOut = Quad.easeOut;
 	};
 	_.extend(Perc2Animation.prototype, Animation.prototype, {
 		buildShape: function() {
@@ -18,7 +16,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 			this.shape.alpha = 1;
 
 			PixiPOV.container.addChild(this.shape);
-
 		}
 	});
 

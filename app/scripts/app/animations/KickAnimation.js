@@ -3,8 +3,6 @@ define(['underscore', 'TweenMax', 'TimeLineLite', 'PIXI', 'app/PixiPOV', 'app/An
 	function KickAnimation(properties) {
 		Animation.apply(this, arguments);
 		this.duration = 0.1;
-		this.easeIn = Quint.easeIn;
-		this.easeOut = Quad.easeOut;
 	};
 	_.extend(KickAnimation.prototype, Animation.prototype, {
 		graphics: new PIXI.Graphics(),
@@ -36,7 +34,6 @@ define(['underscore', 'TweenMax', 'TimeLineLite', 'PIXI', 'app/PixiPOV', 'app/An
 
 		},
 		reset: function() {
-			console.log('reset anim');
 			this.tl.clear();
 		}
 	});

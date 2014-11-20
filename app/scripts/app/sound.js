@@ -38,13 +38,12 @@ define(['TweenMax', 'app/Outro'], function(TweenMax, Outro) {
 	 */
 	Sound.prototype.ready = function() {
 		this.play();
-		//TweenMax.to(this.audio,2.5,{volume:1})
+		TweenMax.to(this.audio,2.5,{volume:1})
 	};
 	/*
 	 * Method wich play the sound with a fadeIn
 	 */
 	Sound.prototype.play = function() {
-		console.log('%c Play song ', 'background:black;color:white;font-size:14px');
 		this.audio.play();
 		this.isPlaying = true;
 	};

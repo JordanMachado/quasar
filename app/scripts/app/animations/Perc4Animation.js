@@ -16,7 +16,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 			this.shape.position.x = 0;
 			this.shape.position.y = this.shape.height;
 			this.shape.alpha = 1;
-			//this.shape.rotation= 3.14159265;
 
 			PixiPOV.container.addChild(this.shape);
 		}

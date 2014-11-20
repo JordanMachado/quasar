@@ -36,4 +36,29 @@ gulp.task('watch', function () {
   gulp.watch(['./app/style/scss/*.scss'], ['compass']);
 });
 
+gulp.task('requirejs', function() {
+  $.requirejs({
+    baseUrl: 'app/scripts/',
+    out: 'main.js',
+    name:'main',
+  shim: {
+    'underscore': {
+      exports: '_'
+    },
+    'jquery': {
+      exports: '$'
+    }
+  },
+  paths: {
+    'underscore': 'bower_components/underscore/underscore',
+    'jquery': 'bower_components/jquery/dist/jquery',
+    'TweenLite': 'bower_components/gsap/src/uncompressed/TweenLite',
+    'TimeLineLite': 'bower_components/gsap/src/uncompressed/TimelineLite',
+    'TweenMax': 'bower_components/gsap/src/uncompressed/TweenMax',
+    'PIXI': 'bower_components/pixi.js/bin/pixi'
+  }
+    })
+        .pipe(gulp.dest('./dist/script'));
+});
+
 gulp.task('default', ['compass','connect', 'watch']);

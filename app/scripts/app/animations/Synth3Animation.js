@@ -2,11 +2,10 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 
 	function Synth3Animation(properties) {
 		Animation.apply(this, arguments);
-		this.duration = 0.1;
-		this.easeIn = Quint.easeIn;
-		this.easeOut = Quad.easeOut;
+		this.duration = 0.3;
 	};
 	_.extend(Synth3Animation.prototype, Animation.prototype, {
+		tl: new TimelineLite(),
 		buildShape: function() {
 			this.shape = new PIXI.Text('WOWE', {
 				font: "200px BebasNeue",
@@ -17,7 +16,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;
 			PixiPOV.container.addChild(this.shape);
-
 		}
 	});
 

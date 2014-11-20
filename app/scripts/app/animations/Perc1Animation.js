@@ -3,8 +3,6 @@ define(['underscore', 'TweenMax', 'TimeLineLite', 'PIXI', 'app/PixiPOV', 'app/An
 	function Perc1Animation(properties) {
 		Animation.apply(this, arguments);
 		this.duration = 0.1;
-		this.easeIn = Quint.easeIn;
-		this.easeOut = Quad.easeOut;
 	};
 	_.extend(Perc1Animation.prototype, Animation.prototype, {
 		tl: new TimelineLite(),
@@ -23,7 +21,6 @@ define(['underscore', 'TweenMax', 'TimeLineLite', 'PIXI', 'app/PixiPOV', 'app/An
 		start: function() {
 
 			this.reset();
-			PixiPOV.showFilter(PixiPOV.filterEnum.INVERT, true);
 			this.tl.to(this.shape.scale, this.duration, {
 				x: 1,
 				y: 1,
@@ -45,9 +42,7 @@ define(['underscore', 'TweenMax', 'TimeLineLite', 'PIXI', 'app/PixiPOV', 'app/An
 		},
 		reset: function() {
 			this.tl.clear();
-		},
-
-
+		}
 	});
 
 	return Perc1Animation;

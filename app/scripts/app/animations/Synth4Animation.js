@@ -4,7 +4,7 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 		Animation.apply(this, arguments);
 		this.duration = 0.1;
 		this.easeIn = Quint.easeIn;
-		this.easeOut = Quad.easeOut;
+		this.easeOut = Elastic.easeOut;
 	};
 	_.extend(Synth4Animation.prototype, Animation.prototype, {
 		buildShape: function() {
@@ -18,7 +18,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 			this.shape.anchor.y = 0.5;
 			this.shape.rotation = 1.5707963267949;
 			PixiPOV.container.addChild(this.shape);
-
 		}
 	});
 

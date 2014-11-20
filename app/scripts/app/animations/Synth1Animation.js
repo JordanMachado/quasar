@@ -17,20 +17,9 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 			this.shape.alpha = 1;
 			this.shape.anchor.x = 0.5;
 			this.shape.anchor.y = 0.5;
-			this.shape.scale.x = 1;
-			this.shape.scale.y = 1;
-
-			//console.log(this.shape)
 
 			PixiPOV.container.addChild(this.shape);
-
-		},
-		start: function() {
-			Animation.prototype.start.call(this);
-			console.log('perc7')
-		},
-
-
+		}
 	});
 
 	return Synth1Animation;

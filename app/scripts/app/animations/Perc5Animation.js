@@ -3,8 +3,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 	function Perc5Animation(properties) {
 		Animation.apply(this, arguments);
 		this.duration = 0.2;
-		this.easeIn = Quint.easeIn;
-		this.easeOut = Quad.easeOut;
 	};
 	_.extend(Perc5Animation.prototype, Animation.prototype, {
 		buildShape: function() {
@@ -18,17 +16,9 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 			this.shape.scale.x = 1;
 			this.shape.scale.y = 1;
 
-			//console.log(this.shape)
-
 			PixiPOV.container.addChild(this.shape);
 
-		},
-		start: function() {
-			Animation.prototype.start.call(this);
-			// console.log('kick')
-		},
-
-
+		}
 	});
 
 	return Perc5Animation;

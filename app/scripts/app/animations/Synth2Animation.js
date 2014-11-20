@@ -21,7 +21,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 		},
 		start: function() {
 			Animation.prototype.start.call(this);
-			console.log('perc7')
 		},
 		reset: function() {
 			TweenMax.to(this.shape, 0.4, {
@@ -34,8 +33,6 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 				ease: this.easeOut
 			});
 		},
-
-
 	});
 
 	return Synth2Animation;

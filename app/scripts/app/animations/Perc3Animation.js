@@ -2,37 +2,23 @@ define(['underscore', 'TweenMax', 'PIXI', 'app/PixiPOV', 'app/Animation'], funct
 
 	function Perc3Animation(properties) {
 		Animation.apply(this, arguments);
-		this.duration = 0.1;
-		this.easeIn = Quint.easeIn;
-		this.easeOut = Quad.easeOut;
+		this.duration = 0.2;
+		this.easeIn = Circ.easeIn;
+		this.easeOut = Circ.easeOut;
 	};
 	_.extend(Perc3Animation.prototype, Animation.prototype, {
 		buildShape: function() {
-			this.shape = new PIXI.Text('PULOOP', {
-				font: "50px BebasNeue",
+			this.shape = new PIXI.Text('Plop\nLoop\nOplo', {
+				font: "70px BebasNeue",
 				fill: '#ecebeb'
 			});
-			this.shape.position.x = 400;
-			this.shape.position.y = 390;
+			this.shape.position.x = 440;
+			this.shape.position.y = 0;
 			this.shape.alpha = 1;
 			this.shape.anchor.x = 0.5;
-			this.shape.anchor.y = 0.5;
-
-
-			this.shape.scale.x = 1;
-			this.shape.scale.y = 1;
-
-			//console.log(this.shape)
 
 			PixiPOV.container.addChild(this.shape);
-
-		},
-		start: function() {
-			Animation.prototype.start.call(this);
-			console.log('kick')
-		},
-
-
+		}
 	});
 
 	return Perc3Animation;

@@ -156,7 +156,6 @@ define([
          */
         playSound: function() {
             App.sound = new Sound();
-            window.sound = App.sound;
         },
         /*
          * Method for streaming the audio 'currentTime' property and launch animation when the currentTime is equal to a sample timeline's step
