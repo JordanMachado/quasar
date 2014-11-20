@@ -58,7 +58,9 @@ gulp.task('requirejs', function() {
     'PIXI': 'bower_components/pixi.js/bin/pixi'
   }
     })
-        .pipe(gulp.dest('./dist/script'));
+  .pipe(gulp.dest('./dist/script'));
 });
+
+/* TODO DIST */
 
 gulp.task('default', ['compass','connect', 'watch']);

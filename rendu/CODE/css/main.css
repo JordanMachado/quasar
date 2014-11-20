@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "BebasNeue";
+  src: url('font/BebasNeue.otf') format('opentype');
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ecebeb;
+  font-family: 'BebasNeue';
+}
+
+.windowLine {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  background-color: #212123;
+  z-index: 5;
+}
+.windowLine.top {
+  top: 0px;
+  border-bottom: 4px solid #ecebeb;
+}
+.windowLine.bottom {
+  bottom: 0px;
+  border-top: 4px solid #ecebeb;
+}
+
+.warp {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#intro, #outro {
+  z-index: 2;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #212123;
+  background-color: #ecebeb;
+  display: table;
+}
+#intro h1, #intro h2, #intro p, #outro h1, #outro h2, #outro p {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: 0;
+}
+#intro h1, #outro h1 {
+  font-size: 8vw;
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+#intro hr, #outro hr {
+  margin: 0 auto;
+  width: 10%;
+  height: 8px;
+  background-color: #212123;
+  opacity: 0;
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+#intro h2, #outro h2 {
+  margin-top: -10px;
+  font-size: 3.8vw;
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+  margin-bottom: 7px;
+}
+#intro h2 + hr, #outro h2 + hr {
+  margin-bottom: 5%;
+}
+#intro p, #outro p {
+  margin: 0 auto;
+  width: 70%;
+  font-size: 3vw;
+  -moz-transform: translateY(-50px);
+  -ms-transform: translateY(-50px);
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
+  color: #939397;
+}
+#intro p .warning, #outro p .warning {
+  color: #ca5555;
+}
+#intro button, #outro button {
+  margin-top: 3%;
+  border: 2px solid #212123;
+  background-color: transparent;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-family: 'BebasNeue';
+  font-size: 3vw;
+  outline: none;
+  opacity: 0;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+#intro button:hover, #outro button:hover {
+  cursor:pointer;
+  background-color: #212123;
+  color: #ecebeb;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+#intro button:active, #outro button:active {
+  background-color: transparent;
+  color: #212123;
+}
+
+#outro {
+  opacity: 0;
+  z-index: 1;
+}
+#outro h2 + hr {
+  margin-bottom: 50px;
+}
+#outro a {
+  color: #939397;
+  -moz-transition: color 0.5s ease-out;
+  -o-transition: color 0.5s ease-out;
+  -webkit-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
+}
+#outro a:hover {
+  color: #212123;
+  -moz-transition: color 0.5s ease-in;
+  -o-transition: color 0.5s ease-in;
+  -webkit-transition: color 0.5s ease-in;
+  transition: color 0.5s ease-in;
+}

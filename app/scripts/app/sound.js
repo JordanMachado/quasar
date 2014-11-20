@@ -31,6 +31,7 @@ define(['TweenMax', 'app/Outro'], function(TweenMax, Outro) {
 		// setup audio 
 		this.audio.playbackRate = 1.7;
 		this.audio.volume = 0;
+		
 
 	};
 	/* 
@@ -38,6 +39,7 @@ define(['TweenMax', 'app/Outro'], function(TweenMax, Outro) {
 	 */
 	Sound.prototype.ready = function() {
 		this.play();
+		this.audio.currentTime = 10;
 		TweenMax.to(this.audio,2.5,{volume:1})
 	};
 	/*
@@ -77,7 +79,8 @@ define(['TweenMax', 'app/Outro'], function(TweenMax, Outro) {
 				volume: 0,
 				onComplete: function() {
 					// restart audio
-					that.audio.currentTime = 0;
+					console.log('restart')
+					that.audio.currentTime = 10;
 					that.restart = true;
 				}
 			})
